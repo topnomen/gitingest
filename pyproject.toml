@@ -1,0 +1,29 @@
+[project]
+name = "CALL_ME_MAYBE"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flake8>=7.4.1",
+    "llm-sdk",
+    "mypy>=2.4.0",
+    "pydantic>=2.14.1",
+]
+
+[tool.uv.workspace]
+members = [
+    "llm_sdk",
+]
+
+[tool.uv.sources]
+llm-sdk = { workspace = true }
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+disallow_subclassing_any = false
+
+[[tool.mypy.overrides]]
+module = "llm_sdk.*"
+ignore_errors = true
